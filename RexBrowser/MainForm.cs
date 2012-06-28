@@ -17,14 +17,14 @@ namespace RexBrowser
             ResizeBrowser();
         }
 
-        private void btnTest_Click(object sender, EventArgs e)
+        private void btnHome_Click(object sender, EventArgs e)
         {
             wkbMain.Navigate("http://www.google.com");
         }
 
         private void wkbMain_DocumentTitleChanged(object sender, EventArgs e)
         {
-            tpMain.Text = wkbMain.DocumentTitle;
+            this.Text = wkbMain.DocumentTitle;
             tbAddress.Text = wkbMain.Url.ToString();
         }
 
@@ -40,17 +40,12 @@ namespace RexBrowser
 
         private void ResizeBrowser()
         {
-            tcMain.Height = this.Height - msMain.Height - pnlControls.Height - 50;
+            wkbMain.Height = this.Height - msMain.Height - pnlControls.Height - 50;
         }
 
-        private void wkbMain_NewWindowRequest(object sender, WebKit.NewWindowRequestEventArgs e)
+        private void btnGo_Click(object sender, EventArgs e)
         {
-            WebBrowser wkbSecondary = new WebBrowser();
-            wkbSecondary.Dock= DockStyle.Fill;
-            wkbSecondary.Url = new Uri(e.Url);
-            TabPage newPage = new TabPage(wkbSecondary.DocumentTitle);
-            newPage.Controls.Add(wkbSecondary);
-            tcMain.TabPages.Add(newPage);
+            wkbMain.Url = new Uri(tbAddress.Text);
         }
     }
 }

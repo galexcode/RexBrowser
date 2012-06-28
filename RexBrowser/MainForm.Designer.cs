@@ -28,31 +28,28 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnHome = new System.Windows.Forms.Button();
             this.btnRefresh = new System.Windows.Forms.Button();
             this.pnlControls = new System.Windows.Forms.Panel();
+            this.btnGo = new System.Windows.Forms.Button();
             this.tbAddress = new System.Windows.Forms.TextBox();
             this.msMain = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.tpMain = new System.Windows.Forms.TabPage();
             this.wkbMain = new WebKit.WebKitBrowser();
-            this.tcMain = new System.Windows.Forms.TabControl();
             this.pnlControls.SuspendLayout();
             this.msMain.SuspendLayout();
-            this.tpMain.SuspendLayout();
-            this.tcMain.SuspendLayout();
             this.SuspendLayout();
             // 
-            // button1
+            // btnHome
             // 
-            this.button1.Location = new System.Drawing.Point(12, 6);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(51, 42);
-            this.button1.TabIndex = 3;
-            this.button1.Text = "Home";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.btnTest_Click);
+            this.btnHome.Location = new System.Drawing.Point(12, 6);
+            this.btnHome.Name = "btnHome";
+            this.btnHome.Size = new System.Drawing.Size(51, 42);
+            this.btnHome.TabIndex = 3;
+            this.btnHome.Text = "Home";
+            this.btnHome.UseVisualStyleBackColor = true;
+            this.btnHome.Click += new System.EventHandler(this.btnHome_Click);
             // 
             // btnRefresh
             // 
@@ -66,20 +63,31 @@
             // 
             // pnlControls
             // 
+            this.pnlControls.Controls.Add(this.btnGo);
             this.pnlControls.Controls.Add(this.tbAddress);
             this.pnlControls.Controls.Add(this.btnRefresh);
-            this.pnlControls.Controls.Add(this.button1);
+            this.pnlControls.Controls.Add(this.btnHome);
             this.pnlControls.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlControls.Location = new System.Drawing.Point(0, 24);
             this.pnlControls.Name = "pnlControls";
             this.pnlControls.Size = new System.Drawing.Size(562, 58);
             this.pnlControls.TabIndex = 5;
             // 
+            // btnGo
+            // 
+            this.btnGo.Location = new System.Drawing.Point(488, 6);
+            this.btnGo.Name = "btnGo";
+            this.btnGo.Size = new System.Drawing.Size(51, 42);
+            this.btnGo.TabIndex = 6;
+            this.btnGo.Text = "GO!";
+            this.btnGo.UseVisualStyleBackColor = true;
+            this.btnGo.Click += new System.EventHandler(this.btnGo_Click);
+            // 
             // tbAddress
             // 
             this.tbAddress.Location = new System.Drawing.Point(155, 18);
             this.tbAddress.Name = "tbAddress";
-            this.tbAddress.Size = new System.Drawing.Size(386, 20);
+            this.tbAddress.Size = new System.Drawing.Size(302, 20);
             this.tbAddress.TabIndex = 5;
             // 
             // msMain
@@ -106,46 +114,22 @@
             this.exitToolStripMenuItem.Size = new System.Drawing.Size(92, 22);
             this.exitToolStripMenuItem.Text = "Exit";
             // 
-            // tpMain
-            // 
-            this.tpMain.Controls.Add(this.wkbMain);
-            this.tpMain.Location = new System.Drawing.Point(4, 22);
-            this.tpMain.Name = "tpMain";
-            this.tpMain.Padding = new System.Windows.Forms.Padding(3);
-            this.tpMain.Size = new System.Drawing.Size(554, 348);
-            this.tpMain.TabIndex = 0;
-            this.tpMain.Text = "tabPage1";
-            this.tpMain.UseVisualStyleBackColor = true;
-            // 
             // wkbMain
             // 
             this.wkbMain.BackColor = System.Drawing.Color.White;
-            this.wkbMain.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.wkbMain.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.wkbMain.Location = new System.Drawing.Point(3, 3);
+            this.wkbMain.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.wkbMain.Location = new System.Drawing.Point(0, 116);
             this.wkbMain.Name = "wkbMain";
-            this.wkbMain.Size = new System.Drawing.Size(548, 342);
-            this.wkbMain.TabIndex = 0;
+            this.wkbMain.Size = new System.Drawing.Size(562, 346);
+            this.wkbMain.TabIndex = 7;
             this.wkbMain.Url = null;
-            this.wkbMain.DocumentTitleChanged += new System.EventHandler(this.wkbMain_DocumentTitleChanged);
-            this.wkbMain.NewWindowRequest += new WebKit.NewWindowRequestEventHandler(this.wkbMain_NewWindowRequest);
-            // 
-            // tcMain
-            // 
-            this.tcMain.Controls.Add(this.tpMain);
-            this.tcMain.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.tcMain.Location = new System.Drawing.Point(0, 88);
-            this.tcMain.Name = "tcMain";
-            this.tcMain.SelectedIndex = 0;
-            this.tcMain.Size = new System.Drawing.Size(562, 374);
-            this.tcMain.TabIndex = 7;
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(562, 462);
-            this.Controls.Add(this.tcMain);
+            this.Controls.Add(this.wkbMain);
             this.Controls.Add(this.pnlControls);
             this.Controls.Add(this.msMain);
             this.MainMenuStrip = this.msMain;
@@ -156,8 +140,6 @@
             this.pnlControls.PerformLayout();
             this.msMain.ResumeLayout(false);
             this.msMain.PerformLayout();
-            this.tpMain.ResumeLayout(false);
-            this.tcMain.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -165,16 +147,15 @@
 
         #endregion
 
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnHome;
         private System.Windows.Forms.Button btnRefresh;
         private System.Windows.Forms.Panel pnlControls;
         private System.Windows.Forms.MenuStrip msMain;
         private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
         private System.Windows.Forms.TextBox tbAddress;
-        private System.Windows.Forms.TabPage tpMain;
+        private System.Windows.Forms.Button btnGo;
         private WebKit.WebKitBrowser wkbMain;
-        private System.Windows.Forms.TabControl tcMain;
     }
 }
 

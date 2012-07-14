@@ -30,22 +30,23 @@
         {
             this.btnHome = new System.Windows.Forms.Button();
             this.btnRefresh = new System.Windows.Forms.Button();
-            this.pnlControls = new System.Windows.Forms.Panel();
             this.btnGo = new System.Windows.Forms.Button();
             this.tbAddress = new System.Windows.Forms.TextBox();
             this.msMain = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.wkbMain = new WebKit.WebKitBrowser();
-            this.pnlControls.SuspendLayout();
+            this.tlpMain = new System.Windows.Forms.TableLayoutPanel();
             this.msMain.SuspendLayout();
+            this.tlpMain.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnHome
             // 
-            this.btnHome.Location = new System.Drawing.Point(12, 6);
+            this.btnHome.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnHome.Location = new System.Drawing.Point(3, 3);
             this.btnHome.Name = "btnHome";
-            this.btnHome.Size = new System.Drawing.Size(51, 42);
+            this.btnHome.Size = new System.Drawing.Size(76, 94);
             this.btnHome.TabIndex = 3;
             this.btnHome.Text = "Home";
             this.btnHome.UseVisualStyleBackColor = true;
@@ -53,31 +54,21 @@
             // 
             // btnRefresh
             // 
-            this.btnRefresh.Location = new System.Drawing.Point(69, 6);
+            this.btnRefresh.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnRefresh.Location = new System.Drawing.Point(85, 3);
             this.btnRefresh.Name = "btnRefresh";
-            this.btnRefresh.Size = new System.Drawing.Size(62, 42);
+            this.btnRefresh.Size = new System.Drawing.Size(97, 94);
             this.btnRefresh.TabIndex = 4;
             this.btnRefresh.Text = "Refresh";
             this.btnRefresh.UseVisualStyleBackColor = true;
             this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
             // 
-            // pnlControls
-            // 
-            this.pnlControls.Controls.Add(this.btnGo);
-            this.pnlControls.Controls.Add(this.tbAddress);
-            this.pnlControls.Controls.Add(this.btnRefresh);
-            this.pnlControls.Controls.Add(this.btnHome);
-            this.pnlControls.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pnlControls.Location = new System.Drawing.Point(0, 24);
-            this.pnlControls.Name = "pnlControls";
-            this.pnlControls.Size = new System.Drawing.Size(562, 58);
-            this.pnlControls.TabIndex = 5;
-            // 
             // btnGo
             // 
-            this.btnGo.Location = new System.Drawing.Point(488, 6);
+            this.btnGo.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnGo.Location = new System.Drawing.Point(604, 3);
             this.btnGo.Name = "btnGo";
-            this.btnGo.Size = new System.Drawing.Size(51, 42);
+            this.btnGo.Size = new System.Drawing.Size(216, 94);
             this.btnGo.TabIndex = 6;
             this.btnGo.Text = "GO!";
             this.btnGo.UseVisualStyleBackColor = true;
@@ -85,9 +76,11 @@
             // 
             // tbAddress
             // 
-            this.tbAddress.Location = new System.Drawing.Point(155, 18);
+            this.tbAddress.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tbAddress.Font = new System.Drawing.Font("Microsoft Sans Serif", 55F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbAddress.Location = new System.Drawing.Point(188, 3);
             this.tbAddress.Name = "tbAddress";
-            this.tbAddress.Size = new System.Drawing.Size(302, 20);
+            this.tbAddress.Size = new System.Drawing.Size(410, 91);
             this.tbAddress.TabIndex = 5;
             // 
             // msMain
@@ -96,7 +89,7 @@
             this.fileToolStripMenuItem});
             this.msMain.Location = new System.Drawing.Point(0, 0);
             this.msMain.Name = "msMain";
-            this.msMain.Size = new System.Drawing.Size(562, 24);
+            this.msMain.Size = new System.Drawing.Size(823, 24);
             this.msMain.TabIndex = 6;
             this.msMain.Text = "menuStrip1";
             // 
@@ -111,35 +104,55 @@
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(92, 22);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.exitToolStripMenuItem.Text = "Exit";
+            this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
             // wkbMain
             // 
             this.wkbMain.BackColor = System.Drawing.Color.White;
-            this.wkbMain.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.wkbMain.Location = new System.Drawing.Point(0, 116);
+            this.wkbMain.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.wkbMain.Location = new System.Drawing.Point(0, 24);
             this.wkbMain.Name = "wkbMain";
-            this.wkbMain.Size = new System.Drawing.Size(562, 346);
+            this.wkbMain.Size = new System.Drawing.Size(823, 438);
             this.wkbMain.TabIndex = 7;
             this.wkbMain.Url = null;
+            this.wkbMain.DocumentTitleChanged += new System.EventHandler(this.wkbMain_DocumentTitleChanged);
+            // 
+            // tlpMain
+            // 
+            this.tlpMain.ColumnCount = 4;
+            this.tlpMain.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 10.03401F));
+            this.tlpMain.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 12.58503F));
+            this.tlpMain.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.48701F));
+            this.tlpMain.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 26.62338F));
+            this.tlpMain.Controls.Add(this.tbAddress, 2, 0);
+            this.tlpMain.Controls.Add(this.btnRefresh, 1, 0);
+            this.tlpMain.Controls.Add(this.btnGo, 3, 0);
+            this.tlpMain.Controls.Add(this.btnHome, 0, 0);
+            this.tlpMain.Dock = System.Windows.Forms.DockStyle.Top;
+            this.tlpMain.Location = new System.Drawing.Point(0, 24);
+            this.tlpMain.Name = "tlpMain";
+            this.tlpMain.RowCount = 1;
+            this.tlpMain.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tlpMain.Size = new System.Drawing.Size(823, 100);
+            this.tlpMain.TabIndex = 9;
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(562, 462);
+            this.ClientSize = new System.Drawing.Size(823, 462);
+            this.Controls.Add(this.tlpMain);
             this.Controls.Add(this.wkbMain);
-            this.Controls.Add(this.pnlControls);
             this.Controls.Add(this.msMain);
             this.MainMenuStrip = this.msMain;
             this.Name = "MainForm";
             this.Text = "RexBrowser";
-            this.Resize += new System.EventHandler(this.MainForm_Resize);
-            this.pnlControls.ResumeLayout(false);
-            this.pnlControls.PerformLayout();
             this.msMain.ResumeLayout(false);
             this.msMain.PerformLayout();
+            this.tlpMain.ResumeLayout(false);
+            this.tlpMain.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -149,13 +162,13 @@
 
         private System.Windows.Forms.Button btnHome;
         private System.Windows.Forms.Button btnRefresh;
-        private System.Windows.Forms.Panel pnlControls;
         private System.Windows.Forms.MenuStrip msMain;
         private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
         private System.Windows.Forms.TextBox tbAddress;
         private System.Windows.Forms.Button btnGo;
         private WebKit.WebKitBrowser wkbMain;
+        private System.Windows.Forms.TableLayoutPanel tlpMain;
     }
 }
 

@@ -14,7 +14,6 @@ namespace RexBrowser
         public MainForm()
         {
             InitializeComponent();
-            ResizeBrowser();
         }
 
         private void btnHome_Click(object sender, EventArgs e)
@@ -33,19 +32,16 @@ namespace RexBrowser
             wkbMain.Refresh();
         }
 
-        private void MainForm_Resize(object sender, EventArgs e)
-        {
-            ResizeBrowser();
-        }
-
-        private void ResizeBrowser()
-        {
-            wkbMain.Height = this.Height - msMain.Height - pnlControls.Height - 50;
-        }
-
         private void btnGo_Click(object sender, EventArgs e)
         {
+            if (tbAddress.Text.IndexOf("http://") == -1)
+                tbAddress.Text = "http://" + tbAddress.Text;
             wkbMain.Url = new Uri(tbAddress.Text);
+        }
+
+        private void exitToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Close();
         }
     }
 }
